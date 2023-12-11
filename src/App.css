@@ -1,0 +1,40 @@
+.App {
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  
+  position: relative;
+  overflow-x: hidden;
+}
+
+input {
+  outline: none;
+}
+
+.nav-link .App-link {
+  color: black !important;
+  text-decoration: none !important;
+}
+
+.nav-link .App-link:hover {
+  color: black !important;
+  text-decoration: none !important;
+}
+
+* p {
+  margin: 0 !important;
+}
+
+main {
+  min-height: 90vh;
+}
+
+a {
+  color: black;
+}
+
+.nav-item:hover a {
+  transition: border-width 0.3s ease;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.253);
+}

@@ -1,0 +1,54 @@
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  color: blue;
+  padding: 20px;
+  
+}
+
+.product-container {
+  display: grid; /* Izgara şeklinde düzenle */
+  grid-template-columns: repeat(4, 1fr); /* 4 eşit sütun oluştur */
+  grid-template-rows: repeat(6, 1fr); /* 6 eşit satır oluştur */
+  justify-content: center; /* Ürünleri yatayda ortala */
+  gap: 30px; /* Ürünler arasında boşluk bırak */
+  max-width: 1200px; /* Ürünlerin maksimum genişliğini ayarla */
+  margin: 20px auto; /* Sayfa içinde ortalamak için margin kullanabilirsiniz */
+  padding: 150px;
+  /* overflow: auto; */
+}
+.product-container :hover {
+  background-color: rgb(112, 108, 104)
+  
+  
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column; /* Ürün detaylarını dikeyde sıralamak için */
+  align-items: center; /* Ürünleri dikeyde ortala */
+  width: 300px; /* Her ürünün genişliğini ayarlayabilirsiniz */
+  border: 1px solid #4f40d9;
+  border-radius: 1px; 
+  padding: 10px;
+  /* margin-bottom: 20px; Bu özelliği kaldır */
+}
+
+.product-image {
+  width: 200px; /* Resmin genişliğini ayarlayabilirsiniz */
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 10px; /* Resmin köşelerini yuvarla */
+}
+
+.product-details {
+  color: #333;
+  text-align: center; /* Ürün detaylarını yatayda ortala */
+}
+.price{
+  color: rgba(122, 5, 5, 0.5);
+  border: 1px;
+}

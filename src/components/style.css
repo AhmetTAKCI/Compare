@@ -1,0 +1,84 @@
+.LoginButton {
+    cursor: pointer;
+    background-color: #d96140;
+    border: 1px solid #d96140;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+
+
+.signInButton {
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #d96140;
+    color: black;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+
+
+.Login {
+    width: 100%;
+}
+
+.Login .eMail input {
+    width: 100%;
+    outline: none;
+    border: 1px solid #d96140;
+}
+
+.Login .password input {
+    width: 100%;
+    outline: none;
+    border: 1px solid #d96140;
+}
+
+.Login .name input {
+    width: 100%;
+    outline: none;
+    border: 1px solid #d96140;
+}
+
+.Login .submit {
+    width: 100%;
+    border: none;
+    background-color: #d96140;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.extraInfo {
+    font-size: 14px;
+}
+
+.forgetMyPassword {
+    cursor: pointer;
+}
+
+.forgetMyPassword:hover {
+    text-decoration: underline;
+}
+
+.extraInfo label {
+    padding-left: 5px;
+    font-size: 14px;
+}
+.alertPopUp {
+    position: absolute;
+    bottom: -99px;
+    left: 30px;
+    color: white;
+    font-weight: 500;
+    transition: bottom 0.4s ease; 
+}
+.success {
+    background-color: green;
+}
+.fail {
+    background-color: red;
+}

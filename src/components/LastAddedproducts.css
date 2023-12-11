@@ -1,0 +1,38 @@
+.lastAddedProducts {
+    background-color: #f8f4e0;
+}
+
+.lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.075) 0px 0px 2px 0px;
+    cursor: pointer;
+    /* display: flex; */
+}
+
+.lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem:hover {
+    box-shadow: rgba(0, 0, 0, 0.548) 0px 0px 2px 0px;
+    color: #d96140;
+}
+
+.lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem .productImage {
+    text-align: center;
+}
+
+.lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem .productImage img {
+    height: 140px;
+    /* width: 100%; */
+    /* object-fit: cover; */
+}
+
+.lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem .productSpecs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem .productSpecs p {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+}
