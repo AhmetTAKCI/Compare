@@ -11,6 +11,8 @@ import { onAuthStateChanged, getAuth } from 'firebase/auth';
 import 'react-toastify/dist/ReactToastify.css';
 import Product from './components/Product';
 
+
+
 function App() {
   const [users, setUsers] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
@@ -45,6 +47,7 @@ function App() {
           </Route>
           <Route path="/product" element={<ProductWithNavbar searchTerm={searchTerm} />}>
             <Product searchTerm={searchTerm} />
+            
           </Route>
         </Switch>
       </Router>

@@ -15,30 +15,49 @@ function Product() {
   });
 
   return (
-   
-    <div >
+    <div>
       <div>
         <h3 className='title'>
           Aramanızla Eşleşen Ürünler
         </h3>
       </div>
-      <div className='product-container'> 
-      {filteredProducts.length === 0 ? (
-        <p>Aradığınız kriterlere uygun ürün bulunamadı.</p>
-      ) : (
-        filteredProducts.map((val) => (
-          <div className='product-item' key={val.id}>
-            <img className='product-image' src={val.image} alt={val.title} />
-            <div className='product-details'>
-              <h3>{val.title}</h3>    
-              <p>{val.Description}</p>
-              <p className='price'>Price:{val.price}$</p>
-            </div>
-          </div>
-
-        ))
-      )}
-    </div>
+      <div className='two-columns'> 
+        {filteredProducts.length === 0 ? (
+          <p>Aradığınız kriterlere uygun ürün bulunamadı.</p>
+        ) : (
+          filteredProducts.map((val) => {
+            if (val.Description === 'boykot ürünü') {
+              return (
+                <div className='boykotÜrünü' key={val.id}>
+                  <h3 className='boykot-title'>Boykot Ürünü</h3>
+                  <div className='product-item'>
+                    <img className='product-image' src={val.image} alt={val.title} />
+                    <div className='product-details'>
+                      <h3>{val.title}</h3>    
+                      <p>{val.Description}</p>
+                      <p className='price'>Fiyat: {val.price}$</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            } else {
+              return (
+                <div className='yerli-ürün' key={val.id}> 
+                  <h3 className='yerli-title'>Yerli Ürün</h3>
+                  <div className='product-item'>
+                    <img className='product-image' src={val.image} alt={val.title} />
+                    <div className='product-details'>
+                      <h3>{val.title}</h3>    
+                      <p>{val.Description}</p>
+                      <p className='price'>Fiyat: {val.price}$</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+          })
+        )}
+      </div>
     </div>
   );
 }

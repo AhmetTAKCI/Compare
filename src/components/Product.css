@@ -1,54 +1,139 @@
-.title{
+/* Genel stil */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ürün başlığı */
+.title {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px;
+}
+
+/* Ürün kutusu */
+.product-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  color: blue;
-  padding: 20px;
-  
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.product-container {
-  display: grid; /* Izgara şeklinde düzenle */
-  grid-template-columns: repeat(4, 1fr); /* 4 eşit sütun oluştur */
-  grid-template-rows: repeat(6, 1fr); /* 6 eşit satır oluştur */
-  justify-content: center; /* Ürünleri yatayda ortala */
-  gap: 30px; /* Ürünler arasında boşluk bırak */
-  max-width: 1200px; /* Ürünlerin maksimum genişliğini ayarla */
-  margin: 20px auto; /* Sayfa içinde ortalamak için margin kullanabilirsiniz */
-  padding: 150px;
-  /* overflow: auto; */
-}
-.product-container :hover {
-  background-color: rgb(112, 108, 104)
-  
-  
+/* Boykot ürünü */
+.boykotÜrünü {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 
+    "boykot-title"
+    "product-item";
+  width: 300px;
+  height: 400px;
+  border: 2px solid red;
+  border-radius: 10px;
 }
 
-.product-item {
-  display: flex;
-  flex-direction: column; /* Ürün detaylarını dikeyde sıralamak için */
-  align-items: center; /* Ürünleri dikeyde ortala */
-  width: 300px; /* Her ürünün genişliğini ayarlayabilirsiniz */
-  border: 1px solid #4f40d9;
-  border-radius: 1px; 
+/* Boykot ürünü başlığı */
+.boykot-title {
+  grid-area: boykot-title;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: red;
+  text-align: center;
   padding: 10px;
-  /* margin-bottom: 20px; Bu özelliği kaldır */
 }
 
+/* Yerli ürün */
+.yerli-ürün {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 
+    "yerli-title"
+    "product-item";
+  width: 300px;
+  height: 400px;
+  border: 2px solid green;
+  border-radius: 10px;
+}
+
+/* Yerli ürün başlığı */
+.yerli-title {
+  grid-area: yerli-title;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: green;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid green; /* burayı ekledim */
+}
+
+/* Ürün detayları */
+.product-item {
+  grid-area: product-item;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Ürün resmi */
 .product-image {
-  width: 200px; /* Resmin genişliğini ayarlayabilirsiniz */
+  width: 200px;
   height: 200px;
   object-fit: cover;
-  margin-bottom: 10px;
-  border-radius: 10px; /* Resmin köşelerini yuvarla */
 }
 
-.product-details {
-  color: #333;
-  text-align: center; /* Ürün detaylarını yatayda ortala */
+/* Ürün başlığı */
+.product-details h3 {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 10px 0;
 }
-.price{
-  color: rgba(122, 5, 5, 0.5);
-  border: 1px;
+
+/* Ürün açıklaması */
+.product-details p {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 10px 0;
+}
+
+/* Ürün fiyatı */
+.price {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* İki kolonlu düzen */
+.two-columns {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Sol kolon */
+.left-column {
+  width: 50%;
+}
+
+/* Sağ kolon */
+.right-column {
+  width: 50%;
 }
