@@ -35,7 +35,7 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-            
+             
             <div className='row mt-1'>
               <Carousel></Carousel>
             </div>
@@ -49,6 +49,7 @@ function App() {
             <Product searchTerm={searchTerm} />
             
           </Route>
+         
         </Switch>
       </Router>
 

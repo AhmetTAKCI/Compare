@@ -1,102 +1,58 @@
-import React, { useState } from 'react'
-import './SubNavbar.css'
-import { useHistory } from "react-router-dom";
+// Gerekli kütüphaneleri import ediyoruz.
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import './SubNavbar.css';
 
-function SubNavbar() {
-    const [dropDownType, setDropDownType] = useState(undefined)
-    const subNavbarItems = ['TELEFON', 'EV-YAŞAM-BAHÇE', 'BİLGİSAYAR-TABLET']
-    let parse = require('html-react-parser')
-    const telefonSvgs = [
-          
-    ]
-    const basliklar = [
-        [
-            { "header": "Akıllı Telefon", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'], "svgs": telefonSvgs[0] },
-            { "header": "Telsiz", "subheaders": [], "svgs": telefonSvgs[1] },
-            { "header": "Kulaklık", "subheaders": [], "svgs": telefonSvgs[2] },
-            { "header": "Akıllı Saat", "subheaders": [], "svgs": telefonSvgs[3] }
-        ],
-        [
-            { "header": "Beyaz Eşya", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
-            { "header": "Yapı/Bahçe", "subheaders": ['Batarya', 'Testere', 'Jeneratör', 'Mangal'] },
-            { "header": "Mutfak Aletleri", "subheaders": ['Pişiriciler', 'Su Arıtma Cihazı', 'Kahvaltı Takımı', 'Kahve Makinesi'] },
-            { "header": "Ev Gereçleri", "subheaders": ['Robot Süpürge', 'Çalışma Koltuğu', 'Valiz', 'Yatak'] }
-        ],
-        [
-            { "header": "Bilgisayarlar", "subheaders": ['Dizüstü Bilgisayar', 'Masaüstü Bilgisayar', 'Tablet', 'Termal Macun'] },
-            { "header": "Çevre Bileşenleri", "subheaders": ['Monitör', 'Anakart', 'İşlemci', 'Ekran Kartı'] },
-            { "header": "Model ve Ağ", "subheaders": ['Modem', 'Router', 'Menzil Genişletici', 'Kablosuz Adaptör'] },
-            { "header": "Depolama", "subheaders": ['SSD Disk', 'Sabit Disk', 'Taşınabilir Disk', 'USB Bellek'] }
-        ]
-    ]
-    let history = useHistory();
-    const routeChange = (data) => {
-        if (data === undefined) return
-        history.push({
-            pathname: '/Liste',
-            state: { category: data }
-        });
-    }
+const SubNavbar = () => {
+  const [active, setActive] = useState([false, false, false]);
+  const history = useHistory();
 
-    const showDropDown = (value) => {
-        const subNavbarItems = document.querySelectorAll('.subNavbarItems');
-        for (let item of subNavbarItems) {
-            item.removeAttribute("style");
-        }
-        setDropDownType(value)
-    }
-    const hideDropDown = (value) => {
-        setDropDownType(undefined)
-        if (value === undefined) {
-            const subNavbarItems = document.querySelectorAll('.subNavbarItems');
-            for (let item of subNavbarItems) {
-                item.removeAttribute("style");
-            }
-            return
-        }
-        const subNavbarDropDown = document.querySelector('.subNavbarDropDown')
-        const subNavbarItems = document.querySelectorAll('.subNavbarItems')[value];
-        subNavbarDropDown.addEventListener('mouseenter', () => {
-            showDropDown(value);
-            subNavbarItems.style.backgroundColor = 'white';
-            subNavbarItems.style.color = '#d96140'
-        })
-    }
-    return (
-        <div className='subNavbar'>
-            {subNavbarItems.map((e, i) => (
-                <div key={i} className='subNavbarItems p-2' onMouseEnter={() => showDropDown(i)} onMouseLeave={() => hideDropDown(i)} >
-                    <p>{e}</p>
-                </div>
-            ))
-            }
-            {dropDownType !== undefined ?
-                <div className='subNavbarDropDown p-2' onMouseLeave={() => hideDropDown()}>
-                    <div className='container'>
-                        {/* {dropDownType} */}
-                        <div className='row justify-content-center'>
-                            {basliklar[dropDownType].map((e, i) => (
-                                <div key={i} className='col-4 py-2 col-md-3 d-flex flex-column'>
-                                    <div className='subNavbarDropDownItems d-flex align-items-center' onClick={() => routeChange((i + 1) * (dropDownType + 1))}>
-                                        <div>
-                                            {e.svgs !== undefined ? parse(String(e.svgs)) : ''}
-                                        </div>
-                                        <div className='ms-1' style={{ fontSize: "14px", fontWeight: "500" }}>
-                                            {e.header}
-                                        </div>
-                                    </div>
-                                    <div className='ms-4'>
-                                        {e.subheaders.map((e1, i1) => (
-                                            <p key={i1} className='ms-1' style={{ fontSize: "13px" }}>- {e1}</p>
-                                        ))}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div> : ''}
-        </div >
-    )
-}
+  // Her üst başlık için farklı alt başlıklar tanımlıyoruz.
+  const subTitles = [
+    ['cola', 'Alt Başlık 1.2', 'Alt Başlık 1.3'],
+    ['Alt Başlık 2.1', 'Alt Başlık 2.2', 'Alt Başlık 2.3'],
+    ['Alt Başlık 3.1', 'Alt Başlık 3.2', 'Alt Başlık 3.3']
+  ];
 
-export default SubNavbar
+  const handleItemClick = (subTitle) => {
+    const searchQuery = `search=${subTitle}`;
+    history.push(`/product?${searchQuery}`);
+  };
+
+  return (
+    <nav className='titleNav'>
+      <ul style={{ display: 'flex', justifyContent: 'center' }}>
+        {['Market Ürünleri', 'Teknolojik Ürünler', 'Ev Yaşam Bahçe'].map((title, index) => (
+          <li
+            key={title}
+            onMouseEnter={() => {
+              let newActive = [...active];
+              newActive[index] = true;
+              setActive(newActive);
+            }}
+            onMouseLeave={() => {
+              let newActive = [...active];
+              newActive[index] = false;
+              setActive(newActive);
+            }}
+          >
+            {title}
+            {active[index] && (
+              <ul onMouseLeave={() => {
+                let newActive = [...active];
+                newActive[index] = false;
+                setActive(newActive);
+              }}>
+                {subTitles[index].map(subTitle => (
+                  <li key={subTitle} value={subTitle} onClick={() => handleItemClick(subTitle)}>{subTitle}</li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
+
+export default SubNavbar;
